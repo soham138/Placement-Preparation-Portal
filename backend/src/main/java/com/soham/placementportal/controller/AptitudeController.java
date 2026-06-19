@@ -27,9 +27,9 @@ public class AptitudeController {
 
     // GET ALL QUESTIONS
     @GetMapping
-    public List<AptitudeQuestion> getAll() {
-        return repo.findAll();
-    }
+public List<AptitudeQuestion> getAll() {
+    return repo.findByType("TEST");
+}
 
     // SUBMIT ANSWER (FIXED VERSION)
    @PostMapping("/{id}/submit")

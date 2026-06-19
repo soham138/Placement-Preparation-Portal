@@ -29,6 +29,8 @@ public class AptitudeQuestion {
 
     private String difficulty;
 
+    private String type;
+
     public Long getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class AptitudeQuestion {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

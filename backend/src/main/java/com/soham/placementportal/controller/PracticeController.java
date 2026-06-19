@@ -23,10 +23,9 @@ public class PracticeController {
     }
 
     @GetMapping
-    public List<AptitudeQuestion> getQuestions() {
-
-        return repo.findAll();
-    }
+     public List<AptitudeQuestion> getQuestions() {
+    return repo.findByType("PRACTICE");
+}
 
     @PostMapping("/{id}/check")
     public Map<String, Object> checkAnswer(
