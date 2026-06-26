@@ -9,93 +9,221 @@ import Practice from "../pages/Practice";
 import AptitudeHistory from "../pages/AptitudeHistory";
 import Leaderboard from "../pages/Leaderboard";
 import ProtectedRoute from "./ProtectedRoute";
+import Coding from "../pages/Coding";
+import MySubmissions from "../pages/MySubmissions";
+import AdminSubmissions from "../pages/AdminSubmissions";
+import CodingLeaderboard from "../pages/CodingLeaderboard";
+
+import AdminDashboard from "../pages/AdminDashboard";
+import AdminQuestions from "../pages/AdminQuestions";
+import AdminUsers from "../pages/AdminUsers";
+import AdminCodingQuestions from "../pages/AdminCodingQuestions";
+
+import Notes from "../pages/Notes";
+import AdminNotes from "../pages/AdminNotes";
+import StudentProfile from "../pages/StudentProfile";
+import AdminProfiles from "../pages/AdminProfiles";
 
 export default function AppRoutes() {
 
-  return (
-    <BrowserRouter>
+    return (
 
-      <Routes>
+        <BrowserRouter>
 
-        <Route
-          path="/"
-          element={<Navigate to="/login" />}
-        />
+            <Routes>
 
-        {/* PUBLIC ROUTES */}
+                <Route
+                    path="/"
+                    element={<Navigate to="/login" />}
+                />
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+                {/* Public Routes */}
 
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+                <Route
+                    path="/login"
+                    element={<Login />}
+                />
 
-        {/* PROTECTED ROUTES */}
+                <Route
+                    path="/register"
+                    element={<Register />}
+                />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+                {/* Protected Routes */}
 
-        <Route
-    path="/history"
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/students"
+                    element={
+                        <ProtectedRoute>
+                            <Students />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/aptitude"
+                    element={
+                        <ProtectedRoute>
+                            <Aptitude />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/practice"
+                    element={
+                        <ProtectedRoute>
+                            <Practice />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/history"
+                    element={
+                        <ProtectedRoute>
+                            <AptitudeHistory />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/coding"
+                    element={
+                        <ProtectedRoute>
+                            <Coding />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/my-submissions"
+                    element={
+                        <ProtectedRoute>
+                            <MySubmissions />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin/submissions"
+                    element={
+                        <ProtectedRoute>
+                            <AdminSubmissions />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/leaderboard"
+                    element={
+                        <ProtectedRoute>
+                            <Leaderboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+             
+
+                <Route
+                    path="/coding-leaderboard"
+                    element={
+                        <ProtectedRoute>
+                            <CodingLeaderboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+    path="/profile"
     element={
         <ProtectedRoute>
-            <AptitudeHistory />
+            <StudentProfile />
+        </ProtectedRoute>
+    }
+/>
+                <Route
+    path="/notes"
+    element={
+        <ProtectedRoute>
+            <Notes />
+        </ProtectedRoute>
+    }
+/>
+                <Route
+    path="/admin"
+    element={
+        <ProtectedRoute roleRequired="ADMIN">
+            <AdminDashboard />
         </ProtectedRoute>
     }
 />
 
-        <Route
-          path="/students"
-          element={
-            <ProtectedRoute>
-              <Students />
-            </ProtectedRoute>
-          }
-        />
+                <Route
+                    path="/admin/questions"
+                    element={
+                        <ProtectedRoute>
+                            <AdminQuestions />
+                        </ProtectedRoute>
+                    }
+                />
 
-        <Route
-          path="/aptitude"
-          element={
-            <ProtectedRoute>
-              <Aptitude />
-            </ProtectedRoute>
-          }
-        />
+                <Route
+                    path="/admin/users"
+                    element={
+                        <ProtectedRoute>
+                            <AdminUsers />
+                        </ProtectedRoute>
+                    }
+                />
 
-        <Route
-          path="/practice"
-          element={
-            <ProtectedRoute>
-              <Practice />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-    path="/leaderboard"
+                <Route
+    path="/admin/profiles"
     element={
-        <ProtectedRoute>
-            <Leaderboard />
+        <ProtectedRoute roleRequired="ADMIN">
+            <AdminProfiles />
         </ProtectedRoute>
     }
 />
-        <Route
-          path="*"
-          element={<Navigate to="/login" />}
-        />
 
-      </Routes>
+                <Route
+                    path="/admin/coding-questions"
+                    element={
+                        <ProtectedRoute>
+                            <AdminCodingQuestions />
+                        </ProtectedRoute>
+                    }
+                />
 
 
-    </BrowserRouter>
-  );
+<Route
+    path="/admin/notes"
+    element={
+        <ProtectedRoute roleRequired="ADMIN">
+            <AdminNotes />
+        </ProtectedRoute>
+    }
+/>
+                {/* Keep wildcard LAST */}
+
+                <Route
+                    path="*"
+                    element={<Navigate to="/login" />}
+                />
+
+     
+            </Routes>
+
+        </BrowserRouter>
+
+    );
 }

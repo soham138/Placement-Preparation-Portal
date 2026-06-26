@@ -48,6 +48,34 @@ public class SecurityConfig {
                                 "/api/aptitude/**"
                         ).authenticated()
 
+                        .requestMatchers(
+            "/api/coding/**"
+    ).authenticated()
+
+    .requestMatchers(
+    "/api/notes/admin/**"
+).hasRole("ADMIN")
+
+.requestMatchers(
+    "/api/notes/**"
+).authenticated()
+
+.requestMatchers("/api/profile/admin/**")
+.hasRole("ADMIN")
+
+.requestMatchers("/api/profile/**")
+.authenticated()
+
+.requestMatchers("/api/profile/admin/**")
+.hasRole("ADMIN")
+
+.requestMatchers("/api/profile/**")
+.authenticated()
+
+.requestMatchers("/uploads/**")
+.permitAll()
+
+
                         .anyRequest()
                         .authenticated()
                 )

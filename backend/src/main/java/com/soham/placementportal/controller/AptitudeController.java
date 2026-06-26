@@ -194,4 +194,105 @@ public List<com.soham.placementportal.dto.LeaderboardDTO> leaderboard() {
     );
 
     return result;
-}}
+}
+@GetMapping("/dashboard")
+public Map<String, Object> getDashboard() {
+
+    Map<String, Object> response =
+            new HashMap<>();
+
+    long totalQuestions =
+            repo.findByType("TEST").size();
+
+    response.put(
+            "totalQuestions",
+            totalQuestions
+    );
+
+    return response;
+}
+
+@PostMapping("/admin")
+public AptitudeQuestion addQuestion(
+        @RequestBody AptitudeQuestion question) {
+
+    return repo.save(question);
+}
+
+@PutMapping("/admin/{id}")
+public AptitudeQuestion updateQuestion(
+        @PathVariable Long id,
+        @RequestBody AptitudeQuestion updatedQuestion) {
+
+    AptitudeQuestion question =
+            repo.findById(id)
+                    .orElseThrow(
+                            () -> new RuntimeException(
+                                    "Question not found"
+                            )
+                    );
+
+    question.setQuestion(
+            updatedQuestion.getQuestion()
+    );
+
+    question.setOptionA(
+            updatedQuestion.getOptionA()
+    );
+
+    question.setOptionB(
+            updatedQuestion.getOptionB()
+    );
+
+    question.setOptionC(
+            updatedQuestion.getOptionC()
+    );
+
+    question.setOptionD(
+            updatedQuestion.getOptionD()
+    );
+
+    question.setCorrectAnswer(
+            updatedQuestion.getCorrectAnswer()
+    );
+
+    question.setDifficulty(
+            updatedQuestion.getDifficulty()
+    );
+
+    question.setType(
+            updatedQuestion.getType()
+    );
+
+    return repo.save(question);
+}
+
+@DeleteMapping("/admin/{id}")
+public Map<String, Object> deleteQuestion(
+        @PathVariable Long id) {
+
+    Map<String, Object> response =
+            new HashMap<>();
+
+    repo.deleteById(id);
+
+    response.put(
+            "success",
+            true
+    );
+
+    response.put(
+            "message",
+            "Question deleted successfully"
+    );
+
+    return response;
+}
+
+@GetMapping("/admin/all")
+public List<AptitudeQuestion> getAllQuestionsForAdmin() {
+
+    return repo.findAll();
+}
+
+}

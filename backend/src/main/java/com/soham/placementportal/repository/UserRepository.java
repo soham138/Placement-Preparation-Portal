@@ -1,12 +1,12 @@
 package com.soham.placementportal.repository;
 
-import java.util.Optional;
-
+import com.soham.placementportal.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.soham.placementportal.entity.User;
+import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository
+        extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
 }

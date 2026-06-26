@@ -32,7 +32,7 @@ public class AuthService {
         User user = new User();
         user.setName(req.getName());
         user.setEmail(req.getEmail());
-        user.setRole(req.getRole());
+        user.setRole("STUDENT");
         user.setPassword(passwordEncoder.encode(req.getPassword()));
 
         return userRepository.save(user);

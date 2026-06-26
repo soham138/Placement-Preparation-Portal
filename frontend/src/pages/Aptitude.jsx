@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export default function Aptitude() {
 
     const [questions, setQuestions] = useState([]);
@@ -128,53 +129,60 @@ export default function Aptitude() {
                     </p>
 
                     <div>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`q${q.id}`}
-                                checked={selected[q.id] === "A"}
-                                onChange={() => handleSelect(q.id, "A")}
-                            />
-                            {q.optionA}
-                        </label>
-                    </div>
+    <label>
+        <input
+            type="radio"
+            name={`q${q.id}`}
+            checked={selected[q.id] === q.optionA}
+            onChange={() =>
+                handleSelect(q.id, q.optionA)
+            }
+        />
+        {q.optionA}
+    </label>
+</div>
 
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`q${q.id}`}
-                                checked={selected[q.id] === "B"}
-                                onChange={() => handleSelect(q.id, "B")}
-                            />
-                            {q.optionB}
-                        </label>
-                    </div>
+<div>
+    <label>
+        <input
+            type="radio"
+            name={`q${q.id}`}
+            checked={selected[q.id] === q.optionB}
+            onChange={() =>
+                handleSelect(q.id, q.optionB)
+            }
+        />
+        {q.optionB}
+    </label>
+</div>
 
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`q${q.id}`}
-                                checked={selected[q.id] === "C"}
-                                onChange={() => handleSelect(q.id, "C")}
-                            />
-                            {q.optionC}
-                        </label>
-                    </div>
+<div>
+    <label>
+        <input
+            type="radio"
+            name={`q${q.id}`}
+            checked={selected[q.id] === q.optionC}
+            onChange={() =>
+                handleSelect(q.id, q.optionC)
+            }
+        />
+        {q.optionC}
+    </label>
+</div>
 
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`q${q.id}`}
-                                checked={selected[q.id] === "D"}
-                                onChange={() => handleSelect(q.id, "D")}
-                            />
-                            {q.optionD}
-                        </label>
-                    </div>
-
+<div>
+    <label>
+        <input
+            type="radio"
+            name={`q${q.id}`}
+            checked={selected[q.id] === q.optionD}
+            onChange={() =>
+                handleSelect(q.id, q.optionD)
+            }
+        />
+        {q.optionD}
+    </label>
+</div>
                     <br />
 
                     <button onClick={() => submitAnswer(q.id)}>
