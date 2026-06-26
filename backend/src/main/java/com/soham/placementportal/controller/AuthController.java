@@ -6,6 +6,7 @@ import com.soham.placementportal.dto.RegisterRequest;
 import com.soham.placementportal.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -16,7 +17,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ApiResponse register(@RequestBody RegisterRequest req) {
+    public ApiResponse register(@Valid @RequestBody RegisterRequest req) {
         return ApiResponse.success(
                 "User registered",
                 authService.register(req)
@@ -24,7 +25,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ApiResponse login(@RequestBody LoginRequest req) {
+    public ApiResponse login(@Valid @RequestBody LoginRequest req) {
         return ApiResponse.success(
                 "Login successful",
                 authService.login(req)

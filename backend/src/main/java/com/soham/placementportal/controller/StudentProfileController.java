@@ -4,7 +4,7 @@ import com.soham.placementportal.entity.StudentProfile;
 import com.soham.placementportal.repository.StudentProfileRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +34,7 @@ public class StudentProfileController {
     // Create Profile
     @PostMapping
 public StudentProfile createProfile(
+    @Valid
         @RequestBody StudentProfile profile,
         HttpServletRequest request) {
 
@@ -51,6 +52,7 @@ public StudentProfile createProfile(
     // Update Profile
     @PutMapping
 public StudentProfile updateProfile(
+    @Valid
         @RequestBody StudentProfile updated,
         HttpServletRequest request) {
 
@@ -65,7 +67,6 @@ public StudentProfile updateProfile(
     profile.setCollege(updated.getCollege());
     profile.setBranch(updated.getBranch());
     profile.setYear(updated.getYear());
-    profile.setPrn(updated.getPrn());
     profile.setPhone(updated.getPhone());
     profile.setCgpa(updated.getCgpa());
     profile.setSkills(updated.getSkills());

@@ -1,6 +1,10 @@
 package com.soham.placementportal.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "student_profiles")
@@ -11,21 +15,32 @@ public class StudentProfile {
     private Long id;
 
     @Column(unique = true)
-    
     private String userEmail;
 
+    @NotBlank(message = "Full Name is required")
     private String fullName;
 
+    @NotBlank(message = "College is required")
     private String college;
 
+    @NotBlank(message = "Branch is required")
     private String branch;
 
+    @NotBlank(message = "Year is required")
     private String year;
 
+    @NotBlank(message = "PRN is required")
     private String prn;
 
+    @NotBlank(message = "Phone Number is required")
+    @Pattern(
+            regexp = "^[0-9]{10}$",
+            message = "Phone Number must contain exactly 10 digits"
+    )
     private String phone;
 
+    @Min(value = 0, message = "CGPA cannot be less than 0")
+    @Max(value = 10, message = "CGPA cannot be greater than 10")
     private Double cgpa;
 
     @Column(length = 1000)
@@ -91,13 +106,7 @@ public class StudentProfile {
         this.year = year;
     }
 
-    public String getPrn() {
-        return prn;
-    }
-
-    public void setPrn(String prn) {
-        this.prn = prn;
-    }
+   
 
     public String getPhone() {
         return phone;

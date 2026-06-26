@@ -1,13 +1,27 @@
 package com.soham.placementportal.exception;
 
 import com.soham.placementportal.dto.ApiResponse;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ApiResponse> handleRuntime(RuntimeException e) {
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(e.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
-    public ApiResponse handle(Exception e) {
-        return ApiResponse.error(e.getMessage());
+    public ResponseEntity<ApiResponse> handleException(Exception e) {
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error("Something went wrong."));
     }
 }

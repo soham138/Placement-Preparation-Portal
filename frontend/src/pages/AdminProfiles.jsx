@@ -244,31 +244,8 @@ export default function AdminProfiles() {
                             onChange={(e) => setSearchName(e.target.value)}
                         />
 
-                        <select
-                            className="form-select"
-                            value={branchFilter}
-                            onChange={(e) => setBranchFilter(e.target.value)}
-                        >
-                            <option value="ALL">All Branches</option>
-                            <option value="Computer">Computer Engineering</option>
-                            <option value="IT">IT</option>
-                            <option value="ENTC">ENTC</option>
-                            <option value="Mechanical">Mechanical Engineering</option>
-                            <option value="Civil">Civil Engineering</option>
-                            <option value="Electrical">Electrical Engineering</option>
-                        </select>
-
-                        <select
-                            className="form-select"
-                            value={yearFilter}
-                            onChange={(e) => setYearFilter(e.target.value)}
-                        >
-                            <option value="ALL">All Academic Years</option>
-                            <option value="First Year">First Year</option>
-                            <option value="Second Year">Second Year</option>
-                            <option value="Third Year">Third Year</option>
-                            <option value="Final Year">Final Year</option>
-                        </select>
+                        
+                       
                     </div>
 
                     {/* --- Status Messaging --- */}
@@ -297,7 +274,7 @@ export default function AdminProfiles() {
                                     <span className="info-item"><strong>College:</strong> {profile.college || "N/A"}</span>
                                     <span className="info-item"><strong>Email:</strong> {profile.userEmail || "N/A"}</span>
                                     <span className="info-item"><strong>Phone:</strong> {profile.phone || "N/A"}</span>
-                                    <span className="info-item"><strong>PRN:</strong> {profile.prn || "N/A"}</span>
+                        
                                     <span className="info-item"><strong>Skills:</strong> {profile.skills || "None listed"}</span>
                                 </div>
 

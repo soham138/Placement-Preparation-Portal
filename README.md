@@ -365,28 +365,4 @@ BE Computer Engineering Student
 
 
 
-INSERT INTO aptitude_questions
-(
-    question,
-    option_a,
-    option_b,
-    option_c,
-    option_d,
-    correct_answer,
-    difficulty
-)
-VALUES
-(
-    'What is 15 + 10?',
-    '20',
-    '25',
-    '30',
-    '35',
-    'B',
-    'EASY'
-);
-
-DELETE FROM aptitude_questions
-WHERE id = 5;
-
-SELECT * FROM aptitude_questions;
+    
