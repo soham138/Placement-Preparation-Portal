@@ -1,368 +1,324 @@
-# Placement Preparation Portal
+# 🎓 Placement Preparation Portal
 
-A full-stack Placement Preparation Portal built using React, Spring Boot, MySQL, JWT Authentication, and REST APIs.
-
-## Project Overview
-
-This project helps students prepare for placements through aptitude tests, practice questions, progress tracking, attempt history, and leaderboard rankings.
-
-The portal provides a secure login system and tracks user performance for continuous improvement.
+A full-stack web application developed to help students prepare for campus placements. The portal provides aptitude practice, coding practice, study notes, profile management, and resume management through a secure role-based system.
 
 ---
 
-## Tech Stack
+## 📖 Overview
 
-### Frontend
-- React
-- React Router
-- Axios
-- Vite
+The Placement Preparation Portal is designed for students and administrators.
 
-### Backend
-- Spring Boot
-- Spring Security
-- JWT Authentication
-- Spring Data JPA
+Students can:
+- Create and manage their profile
+- Upload and view resumes
+- Practice aptitude questions
+- Track coding progress
+- Access study notes
 
-### Database
-- MySQL
+Administrators can:
+- Manage aptitude questions
+- Manage coding questions
+- Upload and manage study notes
+- View student profiles and resumes
+
+The application uses JWT Authentication and Role-Based Authorization to secure all APIs.
 
 ---
 
-## Features
+# ✨ Features
 
-### Authentication
+## 👨‍🎓 Student
+
 - User Registration
 - User Login
-- JWT Token Authentication
-- Protected Routes
-
-### Aptitude Test
-- One Attempt Per Question
-- Score Calculation
-- Accuracy Calculation
-- Progress Tracking
-- Result Feedback
-
-### Practice Mode
-- Unlimited Practice
-- Instant Feedback
-- Difficulty Based Questions
-
-### Dashboard
-- Total Questions
-- Total Attempts
-- Correct Answers
-- Wrong Answers
-- Accuracy Percentage
-
-### Attempt History
-- View All Previous Attempts
-- Correct/Wrong Status
-- Date and Time Tracking
-
-### Leaderboard
-- User Ranking
-- Score Comparison
-- Accuracy Comparison
-
-### Difficulty Levels
-- Easy
-- Medium
-- Hard
+- JWT Authentication
+- View Dashboard
+- Create Profile
+- Update Profile
+- Upload Resume (PDF)
+- View Resume
+- Practice Aptitude Questions
+- View Aptitude Score
+- Track Aptitude Progress
+- View Coding Questions
+- Mark Coding Questions as Solved
+- Track Coding Progress
+- View Notes
 
 ---
 
-## Database Tables
+## 👨‍💼 Admin
 
-### users
-
-| Column |
-|----------|
-| id |
-| name |
-| email |
-| password |
-
-### aptitude_questions
-
-| Column |
-|----------|
-| id |
-| question |
-| option_a |
-| option_b |
-| option_c |
-| option_d |
-| correct_answer |
-| difficulty |
-
-### user_attempts
-
-| Column |
-|----------|
-| id |
-| user_email |
-| question_id |
-| selected_answer |
-| is_correct |
-| attempted_at |
+- Secure Admin Login
+- Add Aptitude Questions
+- Update Aptitude Questions
+- Delete Aptitude Questions
+- Add Coding Questions
+- Update Coding Questions
+- Delete Coding Questions
+- Upload Notes
+- Edit Notes
+- Delete Notes
+- View Student Profiles
+- View Student Resumes
 
 ---
 
-## Project Structure
+# 🔒 Security Features
 
-```text
+- JWT Authentication
+- BCrypt Password Encryption
+- Role-Based Authorization
+- Protected REST APIs
+- Global Exception Handling
+- Input Validation
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Axios
+
+## Backend
+
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- JWT
+- Hibernate
+
+## Database
+
+- MySQL
+
+## Tools
+
+- Maven
+- Git
+- GitHub
+- Postman
+- VS Code
+- IntelliJ IDEA
+
+---
+
+# 📂 Project Structure
+
+```
 PlacementPreparationPortal
 │
 ├── backend
-│   ├── controller
-│   ├── entity
-│   ├── repository
-│   ├── security
-│   └── config
+│   ├── src
+│   ├── uploads
+│   ├── pom.xml
+│   └── application.properties
 │
-└── frontend
-    ├── components
-    ├── pages
-    ├── routes
-    └── services
+├── frontend
+│   ├── src
+│   ├── public
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
 ```
 
 ---
 
-## API Endpoints
+# 🗄 Database
 
-### Authentication
+Main Tables
 
-POST
+- User
+- StudentProfile
+- AptitudeQuestion
+- UserAttempt
+- CodingQuestion
+- CodingProgress
+- Notes
 
-```http
-/api/auth/register
-```
+---
 
-```http
-/api/auth/login
-```
+# 🚀 Installation
 
-### Aptitude
+## Clone Repository
 
-GET
-
-```http
-/api/aptitude
-```
-
-POST
-
-```http
-/api/aptitude/{id}/submit
-```
-
-GET
-
-```http
-/api/aptitude/score
-```
-
-GET
-
-```http
-/api/aptitude/history
-```
-
-GET
-
-```http
-/api/aptitude/leaderboard
-```
-
-### Practice
-
-GET
-
-```http
-/api/practice
-```
-
-POST
-
-```http
-/api/practice/{id}/check
+```bash
+git clone https://github.com/yourusername/PlacementPreparationPortal.git
 ```
 
 ---
 
-## Screenshots
-
-### Login Page
-
-Add Screenshot Here
-
-### Dashboard
-
-Add Screenshot Here
-
-### Aptitude Test
-
-Add Screenshot Here
-
-### Practice Mode
-
-Add Screenshot Here
-
-### History
-
-Add Screenshot Here
-
-### Leaderboard
-
-Add Screenshot Here
-
----
-
-## How To Run
-
-### Backend
+## Backend
 
 ```bash
 cd backend
+```
 
+Configure MySQL in
+
+```
+src/main/resources/application.properties
+```
+
+Example
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/placement_portal
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+```
+
+Run Backend
+
+```bash
+./mvnw spring-boot:run
+```
+
+or
+
+```bash
 mvn spring-boot:run
 ```
 
-Backend runs on:
+Backend runs on
 
-```text
+```
 http://localhost:8081
 ```
 
-### Frontend
+---
+
+## Frontend
 
 ```bash
 cd frontend
-
 npm install
-
 npm run dev
 ```
 
-Frontend runs on:
+Frontend runs on
 
-```text
+```
 http://localhost:5173
 ```
 
 ---
 
-## Learning Outcomes
+# 🔑 Authentication
 
-This project demonstrates:
+The application uses JWT Authentication.
 
-- React Fundamentals
-- Component-Based Architecture
-- REST APIs
-- Spring Boot Development
-- Spring Security
-- JWT Authentication
-- Database Design
-- MySQL Integration
-- Full Stack Development
-- CRUD Operations
-- Performance Tracking Systems
+After successful login, a JWT token is generated.
+
+Protected APIs require:
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
 
 ---
 
-## Future Enhancements
+# 📌 Main REST APIs
 
-- Coding Questions Module
-- Notes Management Module
+## Authentication
+
+```
+POST /api/auth/register
+POST /api/auth/login
+```
+
+---
+
+## Student Profile
+
+```
+GET /api/profile
+POST /api/profile
+PUT /api/profile
+```
+
+---
+
+## Resume
+
+```
+POST /api/profile/resume
+GET /api/profile/resume
+GET /api/profile/admin/resume/{id}
+```
+
+---
+
+## Aptitude
+
+```
+GET /api/aptitude/*
+POST /api/aptitude/*
+```
+
+---
+
+## Coding
+
+```
+GET /api/coding/*
+POST /api/coding/*
+```
+
+---
+
+## Notes
+
+```
+GET /api/notes/*
+POST /api/notes/*
+```
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of the following pages:
+
+- Login
+- Register
+- Dashboard
+- Student Profile
+- Resume Upload
+- Aptitude Module
+- Coding Module
+- Notes Module
 - Admin Dashboard
-- Interview Preparation Module
-- Company Wise Question Bank
-- Performance Analytics
-- Charts and Graphs
-- Role Based Access Control
 
 ---
 
-## Author
+# 📈 Future Enhancements
 
-Soham
+- Company Management Module
+- Online Coding Compiler
+- Mock Interview Module
+- Email Notifications
+- Resume Analyzer
+- Placement Analytics
+- Cloud File Storage
+- Deployment on Cloud Platform
 
-BE Computer Engineering Student
+---
 
+# 👨‍💻 Author
 
+**Soham**
 
+Bachelor of Engineering (Computer Engineering)
 
+---
 
+# 📄 License
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+This project is developed for educational purposes as part of a Bachelor of Engineering project.
