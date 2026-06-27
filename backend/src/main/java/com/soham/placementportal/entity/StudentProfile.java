@@ -29,8 +29,7 @@ public class StudentProfile {
     @NotBlank(message = "Year is required")
     private String year;
 
-    @NotBlank(message = "PRN is required")
-    private String prn;
+
 
     @NotBlank(message = "Phone Number is required")
     @Pattern(
