@@ -287,14 +287,29 @@ POST /api/notes/*
 Add screenshots of the following pages:
 
 - Login
+- <img width="1259" height="756" alt="image" src="https://github.com/user-attachments/assets/94793854-0f5a-4fd3-914b-0e12d02c130b" />
+
 - Register
+- <img width="906" height="783" alt="image" src="https://github.com/user-attachments/assets/7a48f8c1-c690-453e-86e9-8a4a1f05be56" />
+
 - Dashboard
+- <img width="1876" height="984" alt="image" src="https://github.com/user-attachments/assets/3b8101ec-3dbe-4e3f-bcec-4ae2d92a392c" />
+
 - Student Profile
-- Resume Upload
+- <img width="674" height="773" alt="image" src="https://github.com/user-attachments/assets/23546357-c944-4ea5-9aba-1a148ee1a903" />
+
 - Aptitude Module
+- <img width="848" height="1022" alt="image" src="https://github.com/user-attachments/assets/67f64510-1efe-474f-8514-0e9dcf5ed140" />
+
 - Coding Module
+- <img width="1029" height="1079" alt="image" src="https://github.com/user-attachments/assets/85a3dfc5-3d66-43cc-bad5-ad0f609a53ea" />
+
 - Notes Module
+- <img width="760" height="1063" alt="image" src="https://github.com/user-attachments/assets/8ebb87b2-cfc2-48c0-aa1f-8f3aabb4d25e" />
+
 - Admin Dashboard
+- <img width="1842" height="757" alt="image" src="https://github.com/user-attachments/assets/475da02d-4f4a-4a0e-ac7c-70669d762652" />
+
 
 ---
 
